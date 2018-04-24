@@ -1,5 +1,6 @@
 package com.lh.practice.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
          recyclerView.setLayoutManager(layoutManager);
          mainAdapter= new  MainAdapter();
          recyclerView.setAdapter(mainAdapter);
+         setTitle("首页");
     }
     private void initData() {
         items=new ArrayList<Item>();
@@ -163,6 +165,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void onItemClick(int business){
-
+        switch (business){
+            case Business.ARCHIVE:
+                
+                break;
+            case Business.BASICS:
+                new Intent();
+                break;
+            case Business.CONTROL:
+                break;
+            case Business.OTHER:
+                break;
+                
+        }
     }
 }
