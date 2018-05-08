@@ -18,6 +18,7 @@ import com.lh.practice.bean.Business;
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -167,14 +168,12 @@ public class MainActivity extends AppCompatActivity {
     public void onItemClick(int business){
         switch (business){
             case Business.ARCHIVE:
-                
-                break;
             case Business.BASICS:
-                new Intent();
-                break;
             case Business.CONTROL:
-                break;
             case Business.OTHER:
+                Intent intent=new Intent(this,FoundationActivity.class);
+                intent.putExtra("id",Business.BASICS);
+                startActivity(intent);
                 break;
                 
         }

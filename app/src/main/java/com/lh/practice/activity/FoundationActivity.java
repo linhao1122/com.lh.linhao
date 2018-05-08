@@ -1,5 +1,6 @@
 package com.lh.practice.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -25,18 +26,25 @@ public class FoundationActivity extends AppCompatActivity{
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
         setContentView(R.layout.acrivity_foundation);
+        if (savedInstanceState != null) {
+            initParams(savedInstanceState);
+        }
         initView();
         initData();
     }
 
+    public void initParams(Bundle bundle) {
+
+    }
+
     public void initData() {
-        recyclerView=findViewById(R.id.foundation_recycler);
-        LinearLayoutManager layoutManager=new LinearLayoutManager(FoundationActivity.this);
-        recyclerView.setLayoutManager(layoutManager);
+
         recyclerView.setAdapter(adapter);
     }
 
     public void initView() {
-
+        recyclerView=findViewById(R.id.foundation_recycler);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(FoundationActivity.this);
+        recyclerView.setLayoutManager(layoutManager);
     }
 }

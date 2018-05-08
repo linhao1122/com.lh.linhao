@@ -17,7 +17,7 @@ import java.util.ArrayList;
  *
  */
 
-public class FoundationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class FoundationAdapter extends RecyclerView.Adapter<FoundationAdapter.ViewHolder>{
 
     public ArrayList<String> list;
     public Context mContext;
@@ -26,17 +26,20 @@ public class FoundationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         this.list=arrayList;
         notifyDataSetChanged();
     }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.acrivity_foundation_item, null);
-        return view;
+        ViewHolder viewHolder=new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         String s = list.get(position);
-        viewHolder.textView.setText(s);
+        holder.textView.setText(s);
     }
+
 
     @Override
     public int getItemCount() {
