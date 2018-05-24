@@ -7,54 +7,37 @@ import java.util.ArrayList;
  * Created by lh on 2018/4/23.
  */
 
-public class Business implements Serializable{
+public class BusinessChild implements Serializable{
     public int id;
     public String name;
 
-    //档案
-    public static final int ARCHIVE = 0;
-    //基础
-    public static final int BASICS = 1;
-    //控件
-    public static final int CONTROL = 2;
-    //新技术
-    public static final int NEW_TECHNIQUE = 3;
-    //OTHER
-    public static final int OTHER = 4;
-    //第三方控件
-    public static final int THIRD_PARTY = 5;
+    //
+    public static final int BASICS_UI = 100;
+    public static final int BASICS_DB = 20;
+    public static final int BASICS_INTENT = 300;
 
     public static String getName(int id) {
         switch (id) {
-            case ARCHIVE:
+            case BASICS_UI:
                 return "档案";
-            case BASICS:
+            case BASICS_DB:
                 return "基础";
-            case CONTROL:
+            case BASICS_INTENT:
                 return "控件";
-            case OTHER:
-                return "其他";
-            case NEW_TECHNIQUE:
-                return "新技术";
+
         }
         return "";
     }
     public static ArrayList<String> getData(int id){
         switch (id) {
-            case ARCHIVE:
+            case BASICS_UI:
                 getArchiveData();
                break;
-            case BASICS:
+            case BASICS_DB:
                 getBasicsData();
                 break;
-            case CONTROL:
+            case BASICS_INTENT:
                 getControlData();
-                break;
-            case OTHER:
-                getOtherlData();
-                break;
-            case NEW_TECHNIQUE:
-                getTechnueData();
                 break;
         }
 
@@ -63,34 +46,34 @@ public class Business implements Serializable{
 
     private static ArrayList<String> getTechnueData() {
         ArrayList<String> list=new ArrayList<>();
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
+        list.add("");
+        list.add("");
+        list.add("");
+        list.add("");
+        list.add("");
+        list.add("");
         return list;
     }
 
     private static ArrayList<String> getOtherlData() {
         ArrayList<String> list=new ArrayList<>();
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
+        list.add("");
+        list.add("");
+        list.add("");
+        list.add("");
+        list.add("");
+        list.add("");
         return list;
     }
 
     private static ArrayList<String> getControlData() {
         ArrayList<String> list=new ArrayList<>();
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
+        list.add("");
+        list.add("");
+        list.add("");
+        list.add("");
+        list.add("");
+        list.add("");
         return list;
     }
 
@@ -110,12 +93,12 @@ public class Business implements Serializable{
 
     public static ArrayList<String> getArchiveData() {
         ArrayList<String> list=new ArrayList<>();
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
+        list.add("");
+        list.add("");
+        list.add("");
+        list.add("");
+        list.add("");
+        list.add("");
         return list;
     }
 }

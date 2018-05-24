@@ -16,6 +16,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+       <!-- screenOrientation  设置横竖屏
+        landscape:横屏，显示时宽度大于高度；
+        portrait：竖屏， 显示时 高 度大于 宽 度 ；
+        user:用户当前的首选方向；
+        behind:继承Activity堆栈中当前Activity下面的那个Activity的方向；
+        sensor:由物理感应器决定显示方向，它取决于用户如何持有设备，当 设备 被旋转时方向会随之变化——在横屏与竖屏之间；
+        nosensor:忽略物理感应器——即显示方向与物理感应器无关，不管用户如何旋转设备显示方向都不会随着改变("unspecified"设置除外)；
+        unspecified:未指定，此为默认值，由Android系统自己选择适当的方向，选择策略视具体设备的配置情况而定，因此不同的设备会有不同的方向选择；-->
+        <activity android:name=".activity.FoundationActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

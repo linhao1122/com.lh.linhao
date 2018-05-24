@@ -10,7 +10,9 @@ import android.support.v7.widget.RecyclerView;
 
 import com.lh.practice.R;
 import com.lh.practice.adapter.FoundationAdapter;
+import com.lh.practice.bean.Business;
 
+import java.net.IDN;
 import java.util.ArrayList;
 
 /**
@@ -19,30 +21,33 @@ import java.util.ArrayList;
  */
 
 public class FoundationActivity extends AppCompatActivity{
-    public ArrayList list;
+    public ArrayList<String> list;
     public RecyclerView recyclerView;
     public FoundationAdapter adapter;
+    public int id;
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.acrivity_foundation);
-        if (savedInstanceState != null) {
-            initParams(savedInstanceState);
-        }
+        initParams(savedInstanceState);
         initView();
         initData();
     }
 
     public void initParams(Bundle bundle) {
-
+        Intent intent = getIntent();
+        id = intent.getIntExtra("id", 1);
     }
 
     public void initData() {
-
+        list.addAll(Business.getData(id));
+        adapter=new FoundationAdapter(this,list);
         recyclerView.setAdapter(adapter);
+        setTitle(Business.getName(id));
     }
 
     public void initView() {
+
         recyclerView=findViewById(R.id.foundation_recycler);
         LinearLayoutManager layoutManager=new LinearLayoutManager(FoundationActivity.this);
         recyclerView.setLayoutManager(layoutManager);

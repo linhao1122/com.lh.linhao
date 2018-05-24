@@ -19,9 +19,9 @@ import java.util.ArrayList;
 
 public class FoundationAdapter extends RecyclerView.Adapter<FoundationAdapter.ViewHolder>{
 
-    public ArrayList<String> list;
+    public ArrayList<String> list=new ArrayList<>();
     public Context mContext;
-    public void FoundationAdapter(Context context, ArrayList<String> arrayList){
+    public  FoundationAdapter(Context context, ArrayList<String> arrayList){
         this.mContext=context;
         this.list=arrayList;
         notifyDataSetChanged();
@@ -38,6 +38,16 @@ public class FoundationAdapter extends RecyclerView.Adapter<FoundationAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, int position) {
         String s = list.get(position);
         holder.textView.setText(s);
+        holder.textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClick();
+            }
+        });
+    }
+
+    private void onItemClick() {
+
     }
 
 

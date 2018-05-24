@@ -49,16 +49,19 @@ public class MainActivity extends AppCompatActivity {
         items=new ArrayList<Item>();
         ArrayList arr1 = new ArrayList();
         arr1.add(Business.BASICS);
-        arr1.add(Business.BASICS);
-        arr1.add(Business.BASICS);
-        arr1.add(Business.BASICS);
+        arr1.add(Business.CONTROL);
+        arr1.add(Business.NEW_TECHNIQUE);
+        arr1.add(Business.OTHER);
         ArrayList arr2 = new ArrayList();
         arr2.add(Business.BASICS);
-        arr2.add(Business.BASICS);
-        arr2.add(Business.BASICS);
+        arr2.add(Business.CONTROL);
+        arr2.add(Business.NEW_TECHNIQUE);
+        arr2.add(Business.OTHER);
         ArrayList arr3 = new ArrayList();
         arr3.add(Business.BASICS);
-        arr3.add(Business.BASICS);
+        arr3.add(Business.CONTROL);
+        arr3.add(Business.NEW_TECHNIQUE);
+        arr3.add(Business.OTHER);
         items.add(new Item("第一项", arr1));
         items.add(new Item("第二项", arr2));
         items.add(new Item("第三项", arr3));
@@ -117,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList  its;
         ImageView icon;
         TextView text;
-        int object;
+        int id;
         public GridAdapter(ArrayList  items){
             this.its=items;
         }
@@ -144,12 +147,12 @@ public class MainActivity extends AppCompatActivity {
             icon = convertView.findViewById(R.id.grid_icon);
             text = convertView.findViewById(R.id.grid_text);
 
-            object = (int) its.get(position);
-            text.setText(Business.getName(object));
+            id = (int) its.get(position);
+            text.setText(Business.getName(id));
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onItemClick(object);
+                    onItemClick(id);
                 }
             });
 
@@ -166,16 +169,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void onItemClick(int business){
-        switch (business){
-            case Business.ARCHIVE:
-            case Business.BASICS:
-            case Business.CONTROL:
-            case Business.OTHER:
-                Intent intent=new Intent(this,FoundationActivity.class);
-                intent.putExtra("id",Business.BASICS);
-                startActivity(intent);
-                break;
-                
-        }
+
+        Intent intent=new Intent(this,FoundationActivity.class);
+        intent.putExtra("id",business);
+        startActivity(intent);
     }
 }
