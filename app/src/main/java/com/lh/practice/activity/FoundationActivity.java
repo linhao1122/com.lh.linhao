@@ -40,7 +40,9 @@ public class FoundationActivity extends AppCompatActivity{
     }
 
     public void initData() {
-        list.addAll(Business.getData(id));
+        list=new ArrayList<String>();
+        ArrayList<String> data = Business.getData(id);
+        list.addAll(data);
         adapter=new FoundationAdapter(this,list);
         recyclerView.setAdapter(adapter);
         setTitle(Business.getName(id));

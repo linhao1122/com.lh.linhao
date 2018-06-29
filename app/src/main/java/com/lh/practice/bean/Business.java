@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 
 public class Business implements Serializable{
+
     public int id;
     public String name;
 
@@ -23,7 +24,10 @@ public class Business implements Serializable{
     public static final int OTHER = 4;
     //第三方控件
     public static final int THIRD_PARTY = 5;
+    //工具类
+    public static final int UTILS = 6;
 
+    public static ArrayList<String> list=new ArrayList<>();
     public static String getName(int id) {
         switch (id) {
             case ARCHIVE:
@@ -34,35 +38,42 @@ public class Business implements Serializable{
                 return "控件";
             case OTHER:
                 return "其他";
-            case NEW_TECHNIQUE:
-                return "新技术";
+            case THIRD_PARTY:
+                return "第三方控件";
+            case UTILS:
+                return "工具类";
         }
         return "";
     }
     public static ArrayList<String> getData(int id){
         switch (id) {
             case ARCHIVE:
-                getArchiveData();
+                list= getArchiveData();
                break;
             case BASICS:
-                getBasicsData();
+                list= getBasicsData();
                 break;
             case CONTROL:
-                getControlData();
+                list= getControlData();
                 break;
             case OTHER:
-                getOtherlData();
+                list= getOtherlData();
                 break;
             case NEW_TECHNIQUE:
-                getTechnueData();
+                list= getTechnueData();
+                break;
+            case THIRD_PARTY:
+                list= getTechnueData();
+                break;
+            case UTILS:
+                list= getUtilsData();
                 break;
         }
-
-        return null;
+        return list;
     }
 
     private static ArrayList<String> getTechnueData() {
-        ArrayList<String> list=new ArrayList<>();
+
         list.add("信息");
         list.add("信息");
         list.add("信息");
@@ -73,7 +84,7 @@ public class Business implements Serializable{
     }
 
     private static ArrayList<String> getOtherlData() {
-        ArrayList<String> list=new ArrayList<>();
+
         list.add("信息");
         list.add("信息");
         list.add("信息");
@@ -84,7 +95,7 @@ public class Business implements Serializable{
     }
 
     private static ArrayList<String> getControlData() {
-        ArrayList<String> list=new ArrayList<>();
+
         list.add("信息");
         list.add("信息");
         list.add("信息");
@@ -95,7 +106,7 @@ public class Business implements Serializable{
     }
 
     private static ArrayList<String> getBasicsData() {
-        ArrayList<String> list=new ArrayList<>();
+
         list.add("常用UI控件");
         list.add("事件处理机制");
         list.add("四大组件和Intent");
@@ -109,7 +120,18 @@ public class Business implements Serializable{
     }
 
     public static ArrayList<String> getArchiveData() {
-        ArrayList<String> list=new ArrayList<>();
+
+        list.add("信息");
+        list.add("信息");
+        list.add("信息");
+        list.add("信息");
+        list.add("信息");
+        list.add("信息");
+        return list;
+    }
+
+    public static ArrayList<String> getUtilsData() {
+
         list.add("信息");
         list.add("信息");
         list.add("信息");

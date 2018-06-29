@@ -26,7 +26,7 @@
         unspecified:未指定，此为默认值，由Android系统自己选择适当的方向，选择策略视具体设备的配置情况而定，因此不同的设备会有不同的方向选择；-->
         <activity android:name=".activity.FoundationActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="unspecified"/>
     </application>
 
 </manifest>
