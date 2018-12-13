@@ -1,5 +1,10 @@
 package com.lh.practice.bean;
 
+import android.content.Context;
+import android.content.Intent;
+
+import com.lh.practice.activity.TestActivity;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -26,8 +31,17 @@ public class Business implements Serializable{
     public static final int THIRD_PARTY = 5;
     //工具类
     public static final int UTILS = 6;
+    //常用UI控件
+    public static final int BASICS_UI = 101;
+    public static final int BASICS_Test = 199;
 
-    public static ArrayList<String> list=new ArrayList<>();
+    public static ArrayList<Business> list=new ArrayList<Business>();
+
+    public Business(int i, String name) {
+        this.id=i;
+        this.name=name;
+    }
+
     public static String getName(int id) {
         switch (id) {
             case ARCHIVE:
@@ -36,6 +50,8 @@ public class Business implements Serializable{
                 return "基础";
             case CONTROL:
                 return "控件";
+            case NEW_TECHNIQUE:
+                return "新技术";
             case OTHER:
                 return "其他";
             case THIRD_PARTY:
@@ -45,11 +61,11 @@ public class Business implements Serializable{
         }
         return "";
     }
-    public static ArrayList<String> getData(int id){
+    public static ArrayList<Business> getData(int id){
         switch (id) {
             case ARCHIVE:
                 list= getArchiveData();
-               break;
+                break;
             case BASICS:
                 list= getBasicsData();
                 break;
@@ -72,72 +88,56 @@ public class Business implements Serializable{
         return list;
     }
 
-    private static ArrayList<String> getTechnueData() {
+    private static ArrayList<Business> getTechnueData() {
 
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
+        list.add(new Business(111,"信息"));
         return list;
     }
 
-    private static ArrayList<String> getOtherlData() {
+    private static ArrayList<Business> getOtherlData() {
 
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
+        list.add(new Business(121,"信息"));
+
         return list;
     }
 
-    private static ArrayList<String> getControlData() {
+    private static ArrayList<Business> getControlData() {
 
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
+        list.add(new Business(111,"信息"));
         return list;
     }
 
-    private static ArrayList<String> getBasicsData() {
+    private static ArrayList<Business> getBasicsData() {
 
-        list.add("常用UI控件");
-        list.add("事件处理机制");
-        list.add("四大组件和Intent");
-        list.add("Fragment");
-        list.add("数据存储");
-        list.add("网络编程");
-        list.add("绘图和动画");
-        list.add("多媒体开发");
-        list.add("地图定位");
+        list.add(new Business(BASICS_UI,"常用UI控件"));
+        list.add(new Business(102,"事件处理机制"));
+        list.add(new Business(103,"四大组件和Intent"));
+        list.add(new Business(104,"Fragment"));
+        list.add(new Business(BASICS_Test,"Test"));
         return list;
     }
 
-    public static ArrayList<String> getArchiveData() {
+    public static ArrayList<Business> getArchiveData() {
 
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
+        list.add(new Business(111,"信息"));
         return list;
     }
 
-    public static ArrayList<String> getUtilsData() {
+    public static ArrayList<Business> getUtilsData() {
 
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
-        list.add("信息");
+        list.add(new Business(111,"信息"));
         return list;
     }
+
+    public static void onItemClick(Context mContext, int id) {
+        Intent intent =new Intent();
+        switch (id) {
+            case BASICS_Test:
+                intent.setClass(mContext, TestActivity.class);
+                intent.putExtra("id",id);
+                break;
+        }
+        mContext.startActivity(intent);
+    }
+
 }

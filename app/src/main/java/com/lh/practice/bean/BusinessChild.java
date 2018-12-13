@@ -9,11 +9,9 @@ import java.util.ArrayList;
 
 public class BusinessChild implements Serializable{
     public int id;
-    public String name;
 
-    //
     public static final int BASICS_UI = 100;
-    public static final int BASICS_DB = 20;
+    public static final int BASICS_DB = 200;
     public static final int BASICS_INTENT = 300;
 
     public static String getName(int id) {
@@ -32,7 +30,7 @@ public class BusinessChild implements Serializable{
         switch (id) {
             case BASICS_UI:
                 getArchiveData();
-               break;
+                break;
             case BASICS_DB:
                 getBasicsData();
                 break;
@@ -101,4 +99,5 @@ public class BusinessChild implements Serializable{
         list.add("");
         return list;
     }
+
 }

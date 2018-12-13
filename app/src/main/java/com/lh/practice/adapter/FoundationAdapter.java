@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lh.practice.R;
+import com.lh.practice.bean.Business;
+import com.lh.practice.bean.BusinessChild;
 
 import java.util.ArrayList;
 
@@ -19,9 +21,9 @@ import java.util.ArrayList;
 
 public class FoundationAdapter extends RecyclerView.Adapter<FoundationAdapter.ViewHolder>{
 
-    public ArrayList<String> list=new ArrayList<>();
+    public ArrayList<Business> list=new ArrayList<>();
     public Context mContext;
-    public  FoundationAdapter(Context context, ArrayList<String> arrayList){
+    public  FoundationAdapter(Context context, ArrayList<Business> arrayList){
         this.mContext=context;
         this.list=arrayList;
         notifyDataSetChanged();
@@ -36,18 +38,19 @@ public class FoundationAdapter extends RecyclerView.Adapter<FoundationAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String s = list.get(position);
-        holder.textView.setText(s);
+        final Business business = list.get(position);
+        holder.textView.setText(business.name);
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onItemClick();
+                onItemClick(mContext,business.id);
             }
         });
     }
 
-    private void onItemClick() {
+    private void onItemClick(Context mContext, int id) {
 
+        Business.onItemClick(mContext,id);
     }
 
 

@@ -27,6 +27,9 @@
         <activity android:name=".activity.FoundationActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="unspecified"/>
+        <activity android:name=".activity.TestActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="unspecified"/>
     </application>
 
 </manifest>

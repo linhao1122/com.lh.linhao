@@ -21,7 +21,7 @@ import java.util.ArrayList;
  */
 
 public class FoundationActivity extends AppCompatActivity{
-    public ArrayList<String> list;
+    public ArrayList<Business> list;
     public RecyclerView recyclerView;
     public FoundationAdapter adapter;
     public int id;
@@ -39,19 +39,19 @@ public class FoundationActivity extends AppCompatActivity{
         id = intent.getIntExtra("id", 1);
     }
 
-    public void initData() {
-        list=new ArrayList<String>();
-        ArrayList<String> data = Business.getData(id);
-        list.addAll(data);
-        adapter=new FoundationAdapter(this,list);
-        recyclerView.setAdapter(adapter);
-        setTitle(Business.getName(id));
-    }
-
     public void initView() {
 
         recyclerView=findViewById(R.id.foundation_recycler);
         LinearLayoutManager layoutManager=new LinearLayoutManager(FoundationActivity.this);
         recyclerView.setLayoutManager(layoutManager);
+    }
+
+    public void initData() {
+        list=new ArrayList<Business>();
+        ArrayList<Business> data = Business.getData(id);
+        list.addAll(data);
+        adapter=new FoundationAdapter(this,list);
+        recyclerView.setAdapter(adapter);
+        setTitle(Business.getName(id));
     }
 }

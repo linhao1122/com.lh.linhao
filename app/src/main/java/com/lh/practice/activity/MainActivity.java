@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.lh.practice.R;
 import com.lh.practice.bean.Business;
+import com.lh.practice.bean.Item;
 
 import org.w3c.dom.Text;
 
@@ -36,14 +37,14 @@ public class MainActivity extends AppCompatActivity {
         initData();
     }
     private void initView() {
-         mainTitile=findViewById(R.id.title_main);
-         recyclerView = findViewById(R.id.recycleListView_main);
-         ////设置布局管理器
-         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
-         recyclerView.setLayoutManager(layoutManager);
-         mainAdapter= new  MainAdapter();
-         recyclerView.setAdapter(mainAdapter);
-         setTitle("首页");
+        mainTitile=findViewById(R.id.title_main);
+        recyclerView = findViewById(R.id.recycleListView_main);
+        ////设置布局管理器
+        LinearLayoutManager layoutManager=new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        mainAdapter= new  MainAdapter();
+        recyclerView.setAdapter(mainAdapter);
+        setTitle("首页");
     }
     private void initData() {
         items=new ArrayList<Item>();
@@ -159,15 +160,7 @@ public class MainActivity extends AppCompatActivity {
             return convertView;
         }
     }
-    private class Item {
-        String title;
-        ArrayList childs;
 
-        Item(String title, ArrayList childs) {
-            this.title = title;
-            this.childs = childs;
-        }
-    }
     public void onItemClick(int business){
 
         Intent intent=new Intent(this,FoundationActivity.class);
