@@ -8,10 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.lh.practice.Interface.FoundationClickListener;
 import com.lh.practice.R;
 import com.lh.practice.bean.Business;
 import com.lh.practice.bean.BusinessChild;
 
+import java.net.IDN;
 import java.util.ArrayList;
 
 /**
@@ -23,6 +25,8 @@ public class FoundationAdapter extends RecyclerView.Adapter<FoundationAdapter.Vi
 
     public ArrayList<Business> list=new ArrayList<>();
     public Context mContext;
+    FoundationClickListener foundationClickListener;
+
     public  FoundationAdapter(Context context, ArrayList<Business> arrayList){
         this.mContext=context;
         this.list=arrayList;
@@ -31,7 +35,7 @@ public class FoundationAdapter extends RecyclerView.Adapter<FoundationAdapter.Vi
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.acrivity_foundation_item, null);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.acrivity_foundation_item,parent, false);
         ViewHolder viewHolder=new ViewHolder(view);
         return viewHolder;
     }
@@ -50,7 +54,7 @@ public class FoundationAdapter extends RecyclerView.Adapter<FoundationAdapter.Vi
 
     private void onItemClick(Context mContext, int id) {
 
-        Business.onItemClick(mContext,id);
+        foundationClickListener.FoundationItemClick(mContext, id);
     }
 
 
@@ -58,6 +62,7 @@ public class FoundationAdapter extends RecyclerView.Adapter<FoundationAdapter.Vi
     public int getItemCount() {
         return list.size();
     }
+
     class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView textView;
@@ -68,4 +73,7 @@ public class FoundationAdapter extends RecyclerView.Adapter<FoundationAdapter.Vi
         }
     }
 
+    public void setFoundationClickListener(FoundationClickListener listener){
+        this.foundationClickListener=listener;
+    }
 }
