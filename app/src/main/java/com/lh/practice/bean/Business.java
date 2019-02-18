@@ -21,6 +21,11 @@ public class Business implements Serializable{
     public static final int ARCHIVE = 0;
     //基础
     public static final int BASICS = 1;
+    //基础-安浪开发秘籍
+    public static final int BASICS_DEVELOP_SECRET_BOOK = 101;
+    //基础-第一行代码（第二版）
+    public static final int BASICS_FIRST_LINE_FOR_CODE = 102;
+
     //控件
     public static final int CONTROL = 2;
     //新技术
@@ -32,8 +37,8 @@ public class Business implements Serializable{
     //工具类
     public static final int UTILS = 6;
     //常用UI控件
-    public static final int BASICS_UI = 101;
-    public static final int BASICS_Test = 199;
+    public static final int BASICS_UI = 7;
+    public static final int BASICS_TEST = 10000;
 
     public static ArrayList<Business> list=new ArrayList<Business>();
 
@@ -48,6 +53,10 @@ public class Business implements Serializable{
                 return "档案";
             case BASICS:
                 return "基础";
+            case BASICS_DEVELOP_SECRET_BOOK:
+                return "1.1 Android开发秘籍";
+            case BASICS_FIRST_LINE_FOR_CODE:
+                return "1.2 第一行代码（第二版）";
             case CONTROL:
                 return "控件";
             case NEW_TECHNIQUE:
@@ -58,6 +67,8 @@ public class Business implements Serializable{
                 return "第三方控件";
             case UTILS:
                 return "工具类";
+            default:
+                break;
         }
         return "";
     }
@@ -67,6 +78,12 @@ public class Business implements Serializable{
                 list= getArchiveData();
                 break;
             case BASICS:
+                list= getBasicsData();
+                break;
+            case BASICS_DEVELOP_SECRET_BOOK:
+                list= getBasicsData();
+                break;
+            case BASICS_FIRST_LINE_FOR_CODE:
                 list= getBasicsData();
                 break;
             case CONTROL:
@@ -109,11 +126,9 @@ public class Business implements Serializable{
 
     private static ArrayList<Business> getBasicsData() {
 
-        list.add(new Business(BASICS_UI,"常用UI控件"));
-        list.add(new Business(102,"事件处理机制"));
-        list.add(new Business(103,"四大组件和Intent"));
-        list.add(new Business(104,"Fragment"));
-        list.add(new Business(BASICS_Test,"Test"));
+        list.add(new Business(BASICS_DEVELOP_SECRET_BOOK,getName(BASICS_DEVELOP_SECRET_BOOK)));
+        list.add(new Business(BASICS_FIRST_LINE_FOR_CODE,getName(BASICS_FIRST_LINE_FOR_CODE)));
+
         return list;
     }
 
@@ -128,16 +143,4 @@ public class Business implements Serializable{
         list.add(new Business(111,"信息"));
         return list;
     }
-
-    public static void onItemClick(Context mContext, int id) {
-        Intent intent =new Intent();
-        switch (id) {
-            case BASICS_Test:
-                intent.setClass(mContext, TestActivity.class);
-                intent.putExtra("id",id);
-                break;
-        }
-        mContext.startActivity(intent);
-    }
-
 }
