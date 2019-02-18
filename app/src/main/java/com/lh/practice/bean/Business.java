@@ -68,7 +68,7 @@ public class Business implements Serializable{
             case UTILS:
                 return "工具类";
             default:
-                    break;
+                break;
         }
         return "";
     }
@@ -143,6 +143,4 @@ public class Business implements Serializable{
         list.add(new Business(111,"信息"));
         return list;
     }
-
-
 }

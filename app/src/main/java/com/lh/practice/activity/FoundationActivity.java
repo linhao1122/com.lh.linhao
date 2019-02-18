@@ -58,7 +58,7 @@ public class FoundationActivity extends AppCompatActivity{
         adapter.setFoundationClickListener(new FoundationClickListener() {
             @Override
             public void FoundationItemClick(Context mContext, int id) {
-               goToNext(mContext,id);
+                goToNext(mContext,id);
             }
         });
     }
