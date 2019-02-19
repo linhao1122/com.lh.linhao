@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
         ArrayList arr2 = new ArrayList();
         arr2.add(Business.BASICS);
         arr2.add(Business.CONTROL);
-        arr2.add(Business.NEW_TECHNIQUE);
-        arr2.add(Business.OTHER);
+//        arr2.add(Business.NEW_TECHNIQUE);
+//        arr2.add(Business.OTHER);
         ArrayList arr3 = new ArrayList();
         arr3.add(Business.BASICS);
         arr3.add(Business.CONTROL);
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         arr3.add(Business.OTHER);
         items.add(new Item("第一项", arr1));
         items.add(new Item("第二项", arr2));
-        items.add(new Item("第三项", arr3));
+       // items.add(new Item("第三项", arr3));
 
         mainAdapter.setData(items);
 
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onItemClick(int business){
 
-        Intent intent=new Intent(this,FoundationActivity.class);
+        Intent intent=new Intent(this,FirstClassActivity.class);
         intent.putExtra("id",business);
         startActivity(intent);
     }

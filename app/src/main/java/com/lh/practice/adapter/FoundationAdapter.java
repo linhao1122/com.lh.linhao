@@ -27,9 +27,14 @@ public class FoundationAdapter extends RecyclerView.Adapter<FoundationAdapter.Vi
     public Context mContext;
     FoundationClickListener foundationClickListener;
 
-    public  FoundationAdapter(Context context, ArrayList<Business> arrayList){
+
+    public  FoundationAdapter(){
+
+    }
+    public void setData(Context context, ArrayList<Business> arrayList){
         this.mContext=context;
-        this.list=arrayList;
+        list.clear();
+        list.addAll(arrayList);
         notifyDataSetChanged();
     }
 

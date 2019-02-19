@@ -14,45 +14,37 @@ import com.lh.practice.R;
 import com.lh.practice.adapter.FoundationAdapter;
 import com.lh.practice.bean.Business;
 
-import java.net.IDN;
 import java.util.ArrayList;
 
-/**
- * Created by lh on 2018/4/24.
- * 基础列表
- */
-
-public class FoundationActivity extends AppCompatActivity{
+public class TwoLevelMenuActivity extends AppCompatActivity {
     public ArrayList<Business> list;
     public RecyclerView recyclerView;
     public FoundationAdapter adapter;
     public int id;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acrivity_foundation);
         initParams(savedInstanceState);
         initView();
         initData();
     }
-
-    public void initParams(Bundle bundle) {
+    private void initParams(Bundle savedInstanceState) {
         Intent intent = getIntent();
         id = intent.getIntExtra("id", 1);
+
     }
-
-    public void initView() {
-
+    private void initView() {
         recyclerView=findViewById(R.id.foundation_recycler);
-        LinearLayoutManager layoutManager=new LinearLayoutManager(FoundationActivity.this);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(TwoLevelMenuActivity.this);
         recyclerView.setLayoutManager(layoutManager);
-    }
-
-    public void initData() {
+        adapter=new FoundationAdapter();
         list=new ArrayList<Business>();
-        ArrayList<Business> data = Business.getData(id);
-        list.addAll(data);
-        adapter=new FoundationAdapter(this,list);
+    }
+    private void initData() {
+
+        list = Business.getData(id);
+        adapter.setData(this,list);
         recyclerView.setAdapter(adapter);
         setTitle(Business.getName(id));
         adapter.setFoundationClickListener(new FoundationClickListener() {
@@ -71,8 +63,16 @@ public class FoundationActivity extends AppCompatActivity{
                 intent.putExtra("id", this.id);
             }
             break;
+            default:
+                intent.setClass(mContext, TwoLevelMenuActivity.class);
+                intent.putExtra("id", this.id);
+                break;
         }
         mContext.startActivity(intent);
 
     }
+
+
+
+
 }

@@ -81,7 +81,7 @@ public class Business implements Serializable{
                 list= getBasicsData();
                 break;
             case BASICS_DEVELOP_SECRET_BOOK:
-                list= getBasicsData();
+                list= getDevelopSecretBook();
                 break;
             case BASICS_FIRST_LINE_FOR_CODE:
                 list= getBasicsData();
@@ -125,7 +125,12 @@ public class Business implements Serializable{
     }
 
     private static ArrayList<Business> getBasicsData() {
+        list.add(new Business(BASICS_DEVELOP_SECRET_BOOK,getName(BASICS_DEVELOP_SECRET_BOOK)));
+        list.add(new Business(BASICS_FIRST_LINE_FOR_CODE,getName(BASICS_FIRST_LINE_FOR_CODE)));
+        return list;
+    }
 
+    private static ArrayList<Business> getDevelopSecretBook() {
         list.add(new Business(BASICS_DEVELOP_SECRET_BOOK,getName(BASICS_DEVELOP_SECRET_BOOK)));
         list.add(new Business(BASICS_FIRST_LINE_FOR_CODE,getName(BASICS_FIRST_LINE_FOR_CODE)));
 
