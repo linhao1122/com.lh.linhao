@@ -211,11 +211,13 @@ public class Business implements Serializable{
 
         return list;
     }
+
     private static ArrayList<Business> getDevelopSecretUi() {
-        list.add(new Business(DEVELOP_SECRET_UI,getName(DEVELOP_SECRET_UI)));
-        list.add(new Business(DEVELOP_SECRET_ONCLICK,getName(DEVELOP_SECRET_ONCLICK)));
-        list.add(new Business(DEVELOP_SECRET_INTENTS,getName(DEVELOP_SECRET_INTENTS)));
-        list.add(new Business(DEVELOP_SECRET_FRAGMENT,getName(DEVELOP_SECRET_FRAGMENT)));
+        list.add(new Business(DEVELOP_SECRET_VIEW_AND_VIEWGROUP,getName(DEVELOP_SECRET_VIEW_AND_VIEWGROUP)));
+        list.add(new Business(DEVELOP_SECRET_LINEARLAYOUT,getName(DEVELOP_SECRET_LINEARLAYOUT)));
+        list.add(new Business(DEVELOP_SECRET_RALATIVELAYOUT,getName(DEVELOP_SECRET_RALATIVELAYOUT)));
+        list.add(new Business(DEVELOP_SECRET_FRAMELAYOUT,getName(DEVELOP_SECRET_FRAMELAYOUT)));
+        list.add(new Business(DEVELOP_SECRET_GRIDLAYOUT,getName(DEVELOP_SECRET_GRIDLAYOUT)));
 
         return list;
     }

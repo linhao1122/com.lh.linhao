@@ -79,6 +79,18 @@ public class FirstClassActivity extends AppCompatActivity{
                 mContext.startActivity(intent);
             }
             break;
+            case Business.DEVELOP_SECRET_VIEW_AND_VIEWGROUP: {
+                intent.setClass(mContext, ViewAndViewGroupActivity.class);
+                intent.putExtra("id", this.id);
+                mContext.startActivity(intent);
+            }
+            break;
+            case Business.DEVELOP_SECRET_LINEARLAYOUT: {
+                intent.setClass(mContext, ViewAndViewGroupActivity.class);
+                intent.putExtra("id", this.id);
+                mContext.startActivity(intent);
+            }
+            break;
 
            default:
                id=code;
